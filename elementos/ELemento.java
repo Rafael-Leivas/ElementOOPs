@@ -3,41 +3,33 @@ package elementos;
 import java.util.Random;
 
 public class ELemento {
-    Random random = new Random();
+    static Random random = new Random();
 
-    private String nome;
     private int poder;
-    private int ataque;
+    protected int ataque;
     private int defesa;
     private int velocidade;
     private int vida;
 
-    public ELemento(String nome) {
-        setNome(nome);
-        setPoder(0);
-        setAtaque(0);
-        setDefesa(0);
-        setVelocidade(0);
-        setVida(0);
+    public Object toString;
+
+    public ELemento() {
+        setPoder();
+        setAtaque();
+        setDefesa();
+        setVelocidade();
+        setVida();
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public void setPoder(int poder) {
+    public void setPoder() {
         this.poder = random.nextInt(10, 30);
     }
 
     public int getPoder() {
-        return this.poder;
+        return poder;
     }
 
-    public void setAtaque(int ataque) {
+    public void setAtaque() {
         this.ataque = random.nextInt(5, 15);
     }
 
@@ -45,7 +37,7 @@ public class ELemento {
         return this.ataque;
     }
 
-    public void setDefesa(int defesa) {
+    public void setDefesa() {
         this.defesa = random.nextInt(5, 15);
     }
 
@@ -53,7 +45,7 @@ public class ELemento {
         return this.defesa;
     }
 
-    public void setVelocidade(int velocidade) {
+    public void setVelocidade() {
         this.velocidade = random.nextInt(1, 10);
     }
 
@@ -61,32 +53,25 @@ public class ELemento {
         return this.velocidade;
     }
 
-    public void setVida(int vida) {
+    public void setVida() {
         this.vida = random.nextInt(200, 400);
     }
 
     public int getVida() {
         return this.vida;
     }
-
+    
     public String toString() {
-        return String.format("Nome: %s, Poder: %d, Ataque: %d, Defesa: %d, Velocidade: %d, Vida: %d",
-        getNome(),
+        return String.format("Poder: %d, Ataque: %d, Defesa: %d, Velocidade: %d, Vida: %d",
         getPoder(),
         getAtaque(),
         getDefesa(),
         getVelocidade(),
         getVida());
     }
-    
     public void atacar() {
         int dano = poder * ataque / defesa;
         System.out.printf("O dano causado foi de: %d, com o poder: %d * ataque: %d / defesa: %d.\n", dano, poder, ataque, defesa); 
     }
 
-    public void superAtaque() {
-        int dano = poder * ataque / defesa;
-        System.out.printf("O dano causado foi de: %d, com o poder: %d * ataque: %d / defesa: %d.", dano, poder, ataque, defesa); 
-    }
-    
 }
