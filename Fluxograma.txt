@@ -1,0 +1,14 @@
+--- Menu---
+
+iniciarJogo
+escolhaElemento
+jogarTorneio
+ataqueFisicoElemental
+iniciarProximaBatalha
+
+--- Mensagem ---
+ataqueEscolhido
+sucessoDerrota
+parabensVenceuNBatalhas
+obrigadoPorJogar
+
