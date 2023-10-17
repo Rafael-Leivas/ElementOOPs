@@ -30,6 +30,8 @@ public class Menu {
                 System.out.println("Digite um número válido (0 a 4).");
             }
             elemento = sc.nextInt();
+            if (elemento == 0)
+                break;
         } while(elemento > 0 || elemento < 4);
         return elemento;
     }
