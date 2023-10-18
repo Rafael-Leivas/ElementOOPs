@@ -1,8 +1,6 @@
-package elementos.Personagens;
 
-import elementos.ELemento;
 
-public class Agua extends ELemento {
+public class Agua extends Elemento {
 
     private String nome;
 

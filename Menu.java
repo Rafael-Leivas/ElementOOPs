@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public interface Menu {
@@ -33,7 +34,7 @@ public interface Menu {
             elemento = sc.nextInt();
             if (elemento == 0)
                 break;
-        } while(elemento > 0 || elemento < 4);
+        } while(elemento != 0 && elemento != 1 && elemento != 2 && elemento != 3 && elemento != 4 );
         return elemento;
     }
 

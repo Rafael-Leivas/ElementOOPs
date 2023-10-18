@@ -1,8 +1,8 @@
-package elementos;
+
 
 import java.util.Random;
 
-public class ELemento {
+public class Elemento {
     static Random random = new Random();
 
     private int poder;
@@ -13,7 +13,7 @@ public class ELemento {
 
     public Object toString;
 
-    public ELemento() {
+    public Elemento() {
         setPoder();
         setAtaque();
         setDefesa();
@@ -73,5 +73,7 @@ public class ELemento {
         int dano = poder * ataque / defesa;
         System.out.printf("O dano causado foi de: %d, com o poder: %d * ataque: %d / defesa: %d.\n", dano, poder, ataque, defesa); 
     }
+
+    // public void utilizarEspecial();
 
 }

@@ -1,20 +1,18 @@
-package elementos.Personagens;
 
-import elementos.ELemento;
 
-public class Fogo extends ELemento{
+public class Terra extends Elemento {
 
     private String nome;
 
-    public Fogo() {
+    public Terra() {
         super();
-        this.nome = "BurnCoder";
+        this.nome = "StoneDev";
     }
 
     public String getNome() {
         return nome;
     }
-
+    
     public String toString() {
         return String.format("Nome: %s, ", nome) + super.toString();         
     }

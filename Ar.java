@@ -1,8 +1,6 @@
-package elementos.Personagens;
 
-import elementos.ELemento;
 
-public class Ar extends ELemento{
+public class Ar extends Elemento{
 
     private String nome;
 
