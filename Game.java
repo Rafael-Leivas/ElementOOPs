@@ -11,14 +11,18 @@ public class Game {
                 Elemento personagemEscolhido = personagens[opcaoElemento - 1];
                 System.out.println("Personagem escolhido: " + personagemEscolhido);
 
-                for (int i = 0; i < personagens.length; i++) {
-                    if (i != opcaoElemento - 1) {
-                        System.out.println(personagemEscolhido.getNome() + " enfrenta " + personagens[i].getNome() + ":");
-                        Torneio.realizarBatalha(personagemEscolhido, personagens[i]);
+                int opcaoTorneio = Menu.iniciarTorneio();
+
+                if (opcaoTorneio == 1) {
+                    for (int i = 0; i < personagens.length; i++) {
+                        if (i != opcaoElemento - 1) {
+                            System.out.println("------------------------------------");
+                            System.out.println(personagemEscolhido.getNome() + " enfrenta " + personagens[i].getNome() + ":");
+                            Torneio.realizarBatalha(personagemEscolhido, personagens[i]);
+                        }
                     }
                 }
-
-
+                
             }
         }
     }
