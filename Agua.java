@@ -6,11 +6,11 @@ public class Agua extends Elemento {
 
     public Agua() {
         super();
-        setNome(nome);
+        this.nome = "WaveNerd";
     }
 
-    public void setNome(String nome) {
-        this.nome = "WaveNerd";
+    public String getNome() {
+        return nome;
     }
 
     public String toString() {

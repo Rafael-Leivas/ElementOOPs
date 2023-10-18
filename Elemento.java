@@ -74,6 +74,10 @@ public class Elemento {
         System.out.printf("O dano causado foi de: %d, com o poder: %d * ataque: %d / defesa: %d.\n", dano, poder, ataque, defesa); 
     }
 
+    public String getNome() {
+        return null;
+    }
+
     // public void utilizarEspecial();
 
 }
