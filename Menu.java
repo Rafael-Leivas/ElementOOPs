@@ -64,12 +64,12 @@ public interface Menu {
             System.out.printf("Escolha seu ataque\n[1] - Ataque físico;\n[2] - Ataque elemental;\n[0] - Sair;\n");
             while (!sc.hasNextInt()) {
                 sc.next(); // Limpar a entrada não válida
-                System.out.println("Digite um número válido (0 a 3).");
+                System.out.println("Digite um número válido (0 a 2).");
             }
             ataque = sc.nextInt();
             if (ataque == 0)
                 break;
-        } while(ataque > 0 || ataque < 3);
+        } while(ataque != 0 && ataque != 1 && ataque != 2);
         return ataque;
     }
 

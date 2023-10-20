@@ -14,7 +14,7 @@ public class Agua extends Elemento {
     }
 
     public String toString() {
-        return String.format("Nome: %s, ", nome) + super.toString();         
+        return String.format("\nNome: %s", nome) + super.toString();         
     }
     
 }

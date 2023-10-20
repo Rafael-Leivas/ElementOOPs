@@ -60,18 +60,20 @@ public class Elemento {
     public int getVida() {
         return this.vida;
     }
+
+    
     
     public String toString() {
-        return String.format("Poder: %d, Ataque: %d, Defesa: %d, Velocidade: %d, Vida: %d",
+        return String.format("\nPoder: %d\nAtaque: %d\nDefesa: %d\nVelocidade: %d\nVida: %d",
         getPoder(),
         getAtaque(),
         getDefesa(),
         getVelocidade(),
         getVida());
     }
-    public int atacar() {
-        int dano = poder * ataque / defesa;
-        System.out.printf("O dano causado foi de: %d, com o poder: %d * ataque: %d / defesa: %d.\n", dano, poder, ataque, defesa);
+    public int atacar(int defesaOponente) {
+        int dano = poder * ataque / defesaOponente;
+        System.out.printf("O dano causado foi de: %d, com o poder: %d * ataque: %d / defesa: %d.\n", dano, poder, ataque, defesaOponente);
         return dano; 
     }
 
