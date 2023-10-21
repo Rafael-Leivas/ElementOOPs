@@ -25,13 +25,17 @@ public class Game {
                             System.out.println("\nCARACTERISTICAS DO SEU PERSONAGEM:\n " + personagemEscolhido);
                             System.out.println("\nCARACTERISTICAS DO SEU OPONENTE:\n" + personagens[i]);
                             boolean jogadorVenceu = Torneio.realizarBatalha(personagemEscolhido, personagens[i]);
-                            if (i < 3 && jogadorVenceu) {
-                                int proximaBatalha = Menu.iniciarProximaBatalha();
-                                if (proximaBatalha == 0) {
+                            if (jogadorVenceu == false) {
+                                break;
+                            } else {
+                                if (i < 3 && jogadorVenceu) {
+                                    int proximaBatalha = Menu.iniciarProximaBatalha();
+                                    if (proximaBatalha == 0) {
+                                        break;
+                                    }
+                                } else {
                                     break;
                                 }
-                            } else {
-                                break;
                             }
                             
                         }

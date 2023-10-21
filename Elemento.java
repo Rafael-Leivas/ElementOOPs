@@ -92,4 +92,5 @@ public class Elemento {
     public int utilizarEspecial(int i, int j, int k, String string) {
         return ataque;
     }
+
 }
