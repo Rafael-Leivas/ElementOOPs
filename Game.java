@@ -18,18 +18,22 @@ public class Game {
                 if (opcaoTorneio == 1) {
                     for (int i = 0; i < personagens.length; i++) {
                         if (i != opcaoElemento - 1) {
+
                             System.out.println("------------------------------------");
                             System.out.println("BATALHA NÚMERO " + (i + 1));
                             System.out.println(personagemEscolhido.getNome() + " enfrenta " + personagens[i].getNome() + ":");
                             System.out.println("\nCARACTERISTICAS DO SEU PERSONAGEM:\n " + personagemEscolhido);
                             System.out.println("\nCARACTERISTICAS DO SEU OPONENTE:\n" + personagens[i]);
-                            Torneio.realizarBatalha(personagemEscolhido, personagens[i]);
-                            if (i < 3) {
+                            boolean jogadorVenceu = Torneio.realizarBatalha(personagemEscolhido, personagens[i]);
+                            if (i < 3 && jogadorVenceu) {
                                 int proximaBatalha = Menu.iniciarProximaBatalha();
                                 if (proximaBatalha == 0) {
                                     break;
                                 }
+                            } else {
+                                break;
                             }
+                            
                         }
                     }
                 }

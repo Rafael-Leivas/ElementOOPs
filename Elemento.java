@@ -1,7 +1,4 @@
-
-
 import java.util.Random;
-
 public class Elemento {
     static Random random = new Random();
 
@@ -10,7 +7,6 @@ public class Elemento {
     private int defesa;
     private int velocidade;
     private int vida;
-    private int ferimento;
 
     public Object toString;
 
@@ -20,6 +16,14 @@ public class Elemento {
         setDefesa();
         setVelocidade();
         setVidaAleatoria();
+    }
+
+    public String getNome() {
+        return null;
+    }
+
+    public String getElemento() {
+        return null;
     }
 
     public void setPoder() {
@@ -78,16 +82,14 @@ public class Elemento {
         getVelocidade(),
         getVidaAleatoria());
     }
+    
     public int atacar(int defesaOponente) {
         int dano = poder * ataque / defesaOponente;
         // System.out.printf("O dano causado foi de: %d, com o poder: %d * ataque: %d / defesa: %d.\n", dano, poder, ataque, defesaOponente);
         return dano; 
     }
 
-    public String getNome() {
-        return null;
+    public int utilizarEspecial(int i, int j, int k, String string) {
+        return ataque;
     }
-
-    // public void utilizarEspecial();
-
 }
