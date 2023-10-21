@@ -4,41 +4,35 @@ public class Torneio {
 
         int velocidade1 = personagem1.getVelocidade();
         int velocidade2 = personagem2.getVelocidade();
-
-        System.out.println("-------------------------------------------------------");
-        System.out.println("Velocidade do " + personagem1.getNome() + ": " + personagem1.getVelocidade() +  ", Vida: " + personagem1.getVida());
-        System.out.println("Velocidade do " + personagem2.getNome() + ": " + personagem2.getVelocidade() +  ", Vida: " + personagem2.getVida());
-        System.out.println("-------------------------------------------------------");
         
         if (velocidade1 > velocidade2) {
-            System.out.println("Personagem um ataca primeiro");
-            int escolherAtaque = Menu.atacar();
+            System.out.println("-------------------------------------------------------");
+            System.out.println("VOCÊ CONTÉM A VELOCIDADE MAIOR E ATACA PRIMEIRO");
             
-            if (escolherAtaque == 1) {
-                int danoCausado = personagem1.atacar(personagem2.getDefesa());
-
-                diminuirVida(personagem2, danoCausado);
-                System.out.println("-------------------------------------------------------");
-                System.out.println("DANO CAUSADO");
-                System.out.println("Vida do " + personagem2.getNome() + ": " + personagem2.getVida());
-                System.out.println("Ataque do " + personagem1.getNome() + ": " + danoCausado);
-                System.out.println("-------------------------------------------------------");
-            } else if (escolherAtaque == 2) {
-                // Implemente a lógica do ataque elemental
+            while (personagem1.getVida() > 0 && personagem2.getVida() > 0) {
+                int escolherAtaque = Menu.atacar();
+                if (escolherAtaque == 1) {
+                    int danoCausado = personagem1.atacar(personagem2.getDefesa());
+                    diminuirVida(personagem2, danoCausado);
+    
+                    System.out.println("DANO CAUSADO");
+                    System.out.println("Ataque do " + personagem1.getNome() + ": " + danoCausado);
+                    System.out.println("Vida do " + personagem2.getNome() + ": " + personagem2.getVida());
+                    System.out.println("-------------------------------------------------------");
+                } else if (escolherAtaque == 2) {
+                    // Implemente a lógica do ataque elemental
+                }
             }
-            
+        } else if (velocidade1 < velocidade2) {
             System.out.println("-------------------------------------------------------");
-            System.out.println("DANO CAUSADO");
-            System.out.println(personagem1.getNome() + " ataca com " + personagem1.getVelocidade() + " de velocidade");
-            System.out.println(personagem2.getNome() + " ataca com " + personagem2.getVelocidade() + " de velocidade");
-            System.out.println("-------------------------------------------------------");
+            System.out.println("SEU OPONENTE CONTÉM A VELOCIDADE MAIOR E ATACA PRIMEIRO");
         } else {
-            System.out.println("Personagem dois ataca primeiro");
+            System.out.println("-------------------------------------------------------");
+            System.out.println("VOCÊS CONTÉM A MESMA VELOCIDADE");
         }
     }
 
     public static void diminuirVida(Elemento personagem, int danoCausado) {
-        System.out.println("VIDA PERSONAGEM: " + personagem.getVida());
         int vida = personagem.getVida();
         vida -= danoCausado;
         personagem.setVida(vida);

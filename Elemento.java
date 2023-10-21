@@ -10,6 +10,7 @@ public class Elemento {
     private int defesa;
     private int velocidade;
     private int vida;
+    private int ferimento;
 
     public Object toString;
 
@@ -18,7 +19,7 @@ public class Elemento {
         setAtaque();
         setDefesa();
         setVelocidade();
-        setVida(ataque);
+        setVidaAleatoria();
     }
 
     public void setPoder() {
@@ -53,27 +54,33 @@ public class Elemento {
         return this.velocidade;
     }
 
-    public void setVida(int vidaPersonagem2) {
+    public void setVidaAleatoria() {
         this.vida = random.nextInt(200, 400);
+    }
+
+    public int getVidaAleatoria() {
+        return this.vida;
+    }
+
+    public void setVida(int novaVida) {
+        this.vida = novaVida;
     }
 
     public int getVida() {
         return this.vida;
     }
 
-    
-    
     public String toString() {
         return String.format("\nPoder: %d\nAtaque: %d\nDefesa: %d\nVelocidade: %d\nVida: %d",
         getPoder(),
         getAtaque(),
         getDefesa(),
         getVelocidade(),
-        getVida());
+        getVidaAleatoria());
     }
     public int atacar(int defesaOponente) {
         int dano = poder * ataque / defesaOponente;
-        System.out.printf("O dano causado foi de: %d, com o poder: %d * ataque: %d / defesa: %d.\n", dano, poder, ataque, defesaOponente);
+        // System.out.printf("O dano causado foi de: %d, com o poder: %d * ataque: %d / defesa: %d.\n", dano, poder, ataque, defesaOponente);
         return dano; 
     }
 
