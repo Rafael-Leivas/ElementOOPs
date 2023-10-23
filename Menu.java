@@ -48,7 +48,7 @@ public interface Menu {
                 }
                 elemento = sc.nextInt(); 
                 if (elemento == 0)
-                    break;
+                 System.exit(0);
             }
                 
         } while(elemento != 0 && elemento != 1 && elemento != 2 && elemento != 3 && elemento != 4 );
@@ -100,7 +100,7 @@ public interface Menu {
                 }
                 ataque = sc.nextInt(); 
                 if (ataque == 0)
-                    break;
+                System.exit(0);
             }
         } while(ataque != 0 && ataque != 1 && ataque != 2);
         return ataque;
@@ -125,7 +125,7 @@ public interface Menu {
                 }
                 jogar = sc.nextInt(); 
                 if (jogar == 0)
-                    break;
+                System.exit(0);
             }                
         } while(jogar != 0 && jogar != 1);
         System.out.printf("O número escolhido foi: %d.\n" ,jogar);
