@@ -13,17 +13,18 @@ public class Torneio {
         if (velocidade1 > velocidade2) {
             System.out.println("-------------------------------------------------------");
             System.out.println("VOCÊ CONTÉM A VELOCIDADE MAIOR E ATACA PRIMEIRO");
+            System.out.println("-------------------------------------------------------");
             
             while (meuPersonagem.getVida() > 0 && oponente.getVida() > 0) {
 
-                System.out.println("--- ATAQUE DO MEU ---");
+                System.out.println(">> REALIZAR ATAQUE <<");
 
                 int escolherAtaque = Menu.atacar();
                 if (escolherAtaque == 0)
                         break;
                 ataqueElemento(escolherAtaque, meuPersonagem, oponente);
                 
-                System.out.println("--- ATAQUE DO OPONENTE ---");
+                System.out.println(">> ATAQUE DO OPONENTE <<");
                 ataqueOponente(oponente, meuPersonagem);
 
             }
@@ -31,39 +32,50 @@ public class Torneio {
         } else if (velocidade1 < velocidade2) {
             System.out.println("-------------------------------------------------------");
             System.out.println("SEU OPONENTE CONTÉM A VELOCIDADE MAIOR E ATACA PRIMEIRO");
+            System.out.println("-------------------------------------------------------");
 
             while (meuPersonagem.getVida() > 0 && oponente.getVida() > 0) {
 
-                System.out.println("--- ATAQUE DO OPONENTE ---");
+                System.out.println(">> ATAQUE DO OPONENTE <<");
                 ataqueOponente(oponente, meuPersonagem);
                 
                 if (meuPersonagem.getVida() > 0){
-                    System.out.println("--- ESCOLHA O SEU ATAQUE ---");
+                    System.out.println(">> REALIZAR ATAQUE <<-");
                     int escolherAtaque = Menu.atacar();
                     if (escolherAtaque == 0)
                         break;
                     ataqueElemento(escolherAtaque, meuPersonagem, oponente);
-                } else {
-                    
                 }
-
             }
 
         } else {
             System.out.println("-------------------------------------------------------");
-            System.out.println("VOCÊS CONTÉM A MESMA VELOCIDADE");
+            System.out.println("VOCÊS CONTÉM A MESMA VELOCIDADE E COM ISTO ATACA PRIMEIRO");
+            System.out.println("-------------------------------------------------------");
+
+            while (meuPersonagem.getVida() > 0 && oponente.getVida() > 0) {
+
+                System.out.println(">> REALIZAR ATAQUE <<");
+
+                int escolherAtaque = Menu.atacar();
+                if (escolherAtaque == 0)
+                        break;
+                ataqueElemento(escolherAtaque, meuPersonagem, oponente);
+                
+                System.out.println(">> ATAQUE DO OPONENTE <<\n");
+                ataqueOponente(oponente, meuPersonagem);
+
+            }
         }
         
-        meuPersonagem.setVida(vidaPersonagem);
         if (meuPersonagem.getVida() > 0) {
             System.out.println("--- VOCÊ VENCEU A BATALHA---");
             System.out.println("---------------------------------------");
+            meuPersonagem.setVida(vidaPersonagem);
             return true;
         } else {
             System.out.println("--- OPONENTE VENCEU ---");
             System.out.println("---------------------------------------");
-            System.out.println("💔💔 VOCÊ PERDEU O TORNEIO 💔💔");
-            System.out.println("TENTE NOVAMENTE");
             return false;
         }
     }
@@ -79,7 +91,7 @@ public class Torneio {
         diminuirVida(personagem2, danoCausado);
 
         System.out.println("DANO CAUSADO COM ATAQUE FÍSICO: " + danoCausado);
-        System.out.println("Vida do seu personagem: " + personagem1.getVida() + "\nVida do oponente: " + personagem2.getVida());
+        System.out.println("\nVida do " + personagem1.getNome() + ": " + personagem1.getVida() + "\nVida do " + personagem2.getNome() + ": " + personagem2.getVida());
         System.out.println("-------------------------------------------------------");
     }
 
@@ -88,7 +100,7 @@ public class Torneio {
         diminuirVida(personagem2, danoCausado);
 
         System.out.println("--- DANO CAUSADO COM ATAQUE ELEMENTAL: " + danoCausado);
-        System.out.println("Vida do seu personagem: " + personagem1.getVida() + "\nVida do oponente: " + personagem2.getVida());
+        System.out.println("\nVida do " + personagem1.getNome() + ": " + personagem1.getVida() + "\nVida do " + personagem2.getNome() + ": " + personagem2.getVida());
         System.out.println("-------------------------------------------------------");
     }
 
@@ -104,7 +116,7 @@ public class Torneio {
     }
 
     public static void ataqueOponente(Elemento personagem1, Elemento personagem2) {
-        int escolherAtaque = random.nextInt(1, 2);
+        int escolherAtaque = random.nextInt(2) + 1;
         if (escolherAtaque == 1) {
             ataque(personagem1, personagem2);
         } else if (escolherAtaque == 2) {

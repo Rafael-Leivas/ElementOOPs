@@ -21,11 +21,9 @@ public class Terra extends Elemento {
     public int utilizarEspecial(int poder, int ataque, int defesaOponente, String nome) {
 
         if (elemento.equals("Água")) {
-            System.out.println("Especial da Terra");
             int dano = poder * ataque / defesaOponente * 2;
             return dano;
         } else {
-            System.out.println("Especial da Terra");
             int dano = poder * ataque / defesaOponente;
             return dano;
         }

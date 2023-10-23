@@ -1,4 +1,6 @@
 public class Game {
+
+    private static int contador = 0;
     public static void main (String[] args){
 
         int opcao = Menu.iniciarGame();
@@ -16,9 +18,13 @@ public class Game {
                 int opcaoTorneio = Menu.iniciarTorneio();
 
                 if (opcaoTorneio == 1) {
+
+                    System.out.println("------------------------------------");
+                    System.out.println(">>> TORNEIO INICIADO <<<");
+                    System.out.println("------------------------------------");
+                    
                     for (int i = 0; i < personagens.length; i++) {
                         if (i != opcaoElemento - 1) {
-
                             System.out.println("------------------------------------");
                             System.out.println("BATALHA NÚMERO " + (i + 1));
                             System.out.println(personagemEscolhido.getNome() + " enfrenta " + personagens[i].getNome() + ":");
@@ -28,6 +34,7 @@ public class Game {
                             if (jogadorVenceu == false) {
                                 break;
                             } else {
+                                contador++;
                                 if (i < 3 && jogadorVenceu) {
                                     int proximaBatalha = Menu.iniciarProximaBatalha();
                                     if (proximaBatalha == 0) {
@@ -39,6 +46,15 @@ public class Game {
                             }
                             
                         }
+                    }
+                    if (contador == 3) {
+                        System.out.println("------------------------------------");
+                        System.out.println(">>> PARABÉNS VOCÊ VENCEU O TORNEIO <<<");
+                        System.out.println("------------------------------------");
+                    } else {
+                        System.out.println("------------------------------------");
+                        System.out.println(">>> TENTE NOVAMENTE <<<");
+                        System.out.println("------------------------------------");
                     }
                 }
                 
