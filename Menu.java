@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public interface Menu {
+public class Menu {
     
     public static int iniciarGame() {
         int jogar;
@@ -15,14 +15,7 @@ public interface Menu {
             }
             jogar = sc.nextInt(); 
             if (jogar == 0){
-                System.out.print("---- Você tem certeza? ----\n[1] - Voltar;\n[0] - Sair\n");
-                while (!sc.hasNextInt()) {
-                    sc.next(); // Limpar a entrada não válida
-                    System.out.println("Digite um número válido (0 ou 1).");
-                }
-                jogar = sc.nextInt(); 
-                if (jogar == 0)
-                    break;
+                sair();
             }
         } while(jogar != 0 && jogar != 1);
         System.out.printf("O número escolhido foi: %d.\n" ,jogar);
@@ -41,14 +34,7 @@ public interface Menu {
             }
             elemento = sc.nextInt();
             if (elemento == 0){
-                System.out.print("---- Você tem certeza? ----\n[1] - Voltar;\n[0] - Sair\n");
-                while (!sc.hasNextInt()) {
-                    sc.next(); // Limpar a entrada não válida
-                    System.out.println("Digite um número válido (0 ou 1).");
-                }
-                elemento = sc.nextInt(); 
-                if (elemento == 0)
-                 System.exit(0);
+                sair();
             }
                 
         } while(elemento != 0 && elemento != 1 && elemento != 2 && elemento != 3 && elemento != 4 );
@@ -67,14 +53,7 @@ public interface Menu {
             }
             jogar = sc.nextInt(); 
             if (jogar == 0){
-                System.out.print("---- Você tem certeza? ----\n[1] - Voltar;\n[0] - Sair\n");
-                while (!sc.hasNextInt()) {
-                    sc.next(); // Limpar a entrada não válida
-                    System.out.println("Digite um número válido (0 ou 1).");
-                }
-                jogar = sc.nextInt(); 
-                if (jogar == 0)
-                    break;
+                sair();
             };
         } while(jogar != 0 && jogar != 1);
         System.out.printf("O número escolhido foi: %d.\n" ,jogar);
@@ -93,14 +72,7 @@ public interface Menu {
             }
             ataque = sc.nextInt();
             if (ataque == 0){
-                System.out.print("---- Você tem certeza? ----\n[1] - Voltar;\n[0] - Sair\n");
-                while (!sc.hasNextInt()) {
-                    sc.next(); // Limpar a entrada não válida
-                    System.out.println("Digite um número válido (0 ou 1).");
-                }
-                ataque = sc.nextInt(); 
-                if (ataque == 0)
-                System.exit(0);
+                sair();
             }
         } while(ataque != 0 && ataque != 1 && ataque != 2);
         return ataque;
@@ -118,17 +90,26 @@ public interface Menu {
             }
             jogar = sc.nextInt(); 
             if (jogar == 0){
-                System.out.print("---- Você tem certeza? ----\n[1] - Voltar;\n[0] - Sair\n");
-                while (!sc.hasNextInt()) {
-                    sc.next(); // Limpar a entrada não válida
-                    System.out.println("Digite um número válido (0 ou 1).");
-                }
-                jogar = sc.nextInt(); 
-                if (jogar == 0)
-                System.exit(0);
+                sair();
             }                
         } while(jogar != 0 && jogar != 1);
         System.out.printf("O número escolhido foi: %d.\n" ,jogar);
         return jogar;
     }
+
+    public static void sair() {
+        int jogar;
+        Scanner sc = new Scanner(System.in);
+    
+        System.out.print("---- Você tem certeza? ----\n[1] - Voltar;\n[0] - Sair\n");
+        while (!sc.hasNextInt()) {
+            sc.next(); // Limpar a entrada não válida
+            System.out.println("Digite um número válido (0 ou 1).");
+        }
+        jogar = sc.nextInt(); 
+        
+        if (jogar == 0)
+            System.exit(0);
+    }
+
 }
